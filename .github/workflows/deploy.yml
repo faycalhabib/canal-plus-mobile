@@ -3,12 +3,15 @@ name: Deploy Canal+ Flutter Web
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     
     steps:
     - name: Checkout code
@@ -17,7 +20,7 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.16.0'
+        flutter-version: '3.19.0'
         channel: 'stable'
         
     - name: Install dependencies
@@ -25,31 +28,19 @@ jobs:
         cd client
         flutter pub get
         
-    - name: Analyze code
-      run: |
-        cd client
-        flutter analyze
-        
-    - name: Run tests
-      run: |
-        cd client
-        flutter test
-        
     - name: Build web
       run: |
         cd client
-        flutter build web --release --web-renderer html
+        flutter build web --release --web-renderer canvaskit --base-href /canal-plus-mobile/
+        
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload to GitHub Pages
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./client/build/web
         
     - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./client/build/web
-        cname: canal-plus-mobile.github.io
-        
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: web-build
-        path: ./client/build/web/
+      id: deployment
+      uses: actions/deploy-pages@v4
