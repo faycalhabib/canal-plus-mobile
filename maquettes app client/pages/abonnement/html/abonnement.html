@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Abonnement - Canal+</title>
+    <link rel="stylesheet" href="../css/abonnement.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header avec navigation -->
+        <header class="subscription-header">
+            <button class="back-btn" onclick="window.location.href='../../dashboard/html/index.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="header-title">
+                <h1>Mon Abonnement</h1>
+            </div>
+            <div class="header-actions">
+                <button class="help-btn" onclick="window.location.href='../../support/html/support.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+                        <path d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 17H12.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Aide
+                </button>
+            </div>
+        </header>
+
+        <!-- Contenu principal -->
+        <main class="subscription-main">
+            <!-- Statut de l'abonnement -->
+            <section class="subscription-status">
+                <div class="status-card active">
+                    <div class="status-header">
+                        <div class="status-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="status-info">
+                            <h2>Abonnement Actif</h2>
+                            <p class="status-text">Canal+ Premium</p>
+                        </div>
+                        <div class="status-badge">
+                            <span>ACTIF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="subscription-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Prochaine facturation</span>
+                            <span class="detail-value" id="nextBilling">15 février 2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Prix mensuel</span>
+                            <span class="detail-value">15 000 FCFA</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Méthode de paiement</span>
+                            <span class="detail-value">Mobile Money</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Date de souscription</span>
+                            <span class="detail-value" id="subscriptionDate">15 janvier 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Actions rapides -->
+            <section class="quick-actions">
+                <h3>Actions rapides</h3>
+                <div class="actions-grid">
+                    <button class="action-card" id="renewBtn">
+                        <div class="action-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 4V10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.51 15C4.13 16.44 5.14 17.67 6.42 18.54C7.7 19.41 9.2 19.89 10.75 19.92C12.3 19.95 13.82 19.53 15.14 18.71C16.46 17.88 17.52 16.69 18.19 15.27C18.86 13.85 19.11 12.26 18.92 10.69C18.72 9.12 18.09 7.65 17.1 6.46C16.11 5.27 14.8 4.4 13.33 3.96C11.86 3.52 10.3 3.53 8.84 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="action-content">
+                            <h4>Renouveler</h4>
+                            <p>Prolonger votre abonnement</p>
+                        </div>
+                    </button>
+                    
+                    <button class="action-card" id="upgradeBtn">
+                        <div class="action-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="action-content">
+                            <h4>Améliorer</h4>
+                            <p>Passer à un forfait supérieur</p>
+                        </div>
+                    </button>
+                    
+                    <button class="action-card" id="paymentBtn">
+                        <div class="action-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="action-content">
+                            <h4>Paiement</h4>
+                            <p>Gérer les méthodes de paiement</p>
+                        </div>
+                    </button>
+                    
+                    <button class="action-card" id="pauseBtn">
+                        <div class="action-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="4" width="4" height="16" stroke="currentColor" stroke-width="2"/>
+                                <rect x="14" y="4" width="4" height="16" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="action-content">
+                            <h4>Suspendre</h4>
+                            <p>Mettre en pause temporairement</p>
+                        </div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Historique des factures -->
+            <section class="billing-history">
+                <div class="section-header">
+                    <h3>Historique des factures</h3>
+                    <button class="download-all-btn" id="downloadAllBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Tout télécharger
+                    </button>
+                </div>
+                
+                <div class="billing-list" id="billingList">
+                    <!-- Les factures seront générées dynamiquement -->
+                </div>
+            </section>
+
+            <!-- Offres et promotions -->
+            <section class="offers-section">
+                <h3>Offres disponibles</h3>
+                <div class="offers-grid">
+                    <div class="offer-card premium">
+                        <div class="offer-badge">POPULAIRE</div>
+                        <div class="offer-header">
+                            <h4>Canal+ Ultra</h4>
+                            <div class="offer-price">
+                                <span class="price">25 000</span>
+                                <span class="currency">FCFA/mois</span>
+                            </div>
+                        </div>
+                        <div class="offer-features">
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Toutes les chaînes Premium
+                            </div>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                4K Ultra HD
+                            </div>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                5 écrans simultanés
+                            </div>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Téléchargements illimités
+                            </div>
+                        </div>
+                        <button class="offer-btn" data-plan="ultra">Passer à Ultra</button>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-header">
+                            <h4>Canal+ Sport</h4>
+                            <div class="offer-price">
+                                <span class="price">20 000</span>
+                                <span class="currency">FCFA/mois</span>
+                            </div>
+                        </div>
+                        <div class="offer-features">
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Toutes les chaînes Sport
+                            </div>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Matchs en direct
+                            </div>
+                            <div class="feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Replays disponibles
+                            </div>
+                        </div>
+                        <button class="offer-btn" data-plan="sport">Ajouter Sport</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Zone de danger -->
+            <section class="danger-zone">
+                <h3>Zone de danger</h3>
+                <div class="danger-actions">
+                    <button class="danger-btn" id="cancelBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+                            <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Résilier l'abonnement
+                    </button>
+                </div>
+                <p class="danger-warning">
+                    ⚠️ La résiliation est définitive et prendra effet à la fin de votre période de facturation actuelle.
+                </p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="subscription-footer">
+            <div class="footer-links">
+                <a href="../../support/html/support.html">Support Client</a>
+                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="../../parametres/html/parametres.html">Paramètres</a>
+            </div>
+            <p>© 2025 Canal+. Tous droits réservés.</p>
+        </footer>
+    </div>
+    
+    <script src="../js/abonnement.js"></script>
+</body>
+</html>

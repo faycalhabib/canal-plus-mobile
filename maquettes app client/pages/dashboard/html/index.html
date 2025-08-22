@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Canal+</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header avec navigation -->
+        <header class="dashboard-header">
+            <div class="header-brand">
+                <div class="logo">
+                    <span class="logo-text">Canal+</span>
+                </div>
+                <div class="user-greeting">
+                    <h2 id="userGreeting">Bonjour, <span id="userName">Utilisateur</span></h2>
+                    <p id="currentTime"></p>
+                </div>
+            </div>
+            
+            <nav class="header-nav">
+                <div class="nav-links">
+                    <a href="#" class="nav-link active" data-section="home">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Accueil
+                    </a>
+                    <a href="#" class="nav-link" data-section="live">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                        </svg>
+                        En Direct
+                    </a>
+                    <a href="#" class="nav-link" data-section="movies">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2"/>
+                            <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Films
+                    </a>
+                    <a href="#" class="nav-link" data-section="series">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" stroke="currentColor" stroke-width="2"/>
+                            <line x1="7" y1="2" x2="7" y2="22" stroke="currentColor" stroke-width="2"/>
+                            <line x1="17" y1="2" x2="17" y2="22" stroke="currentColor" stroke-width="2"/>
+                            <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2"/>
+                            <line x1="2" y1="7" x2="7" y2="7" stroke="currentColor" stroke-width="2"/>
+                            <line x1="2" y1="17" x2="7" y2="17" stroke="currentColor" stroke-width="2"/>
+                            <line x1="17" y1="17" x2="22" y2="17" stroke="currentColor" stroke-width="2"/>
+                            <line x1="17" y1="7" x2="22" y2="7" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Séries
+                    </a>
+                    <a href="#" class="nav-link" data-section="sport">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8.56 2.75C4.37 6.03 2 10.83 2 16.19C2 17.92 2.24 19.58 2.69 21.14" stroke="currentColor" stroke-width="2"/>
+                            <path d="M15.44 2.75C19.63 6.03 22 10.83 22 16.19C22 17.92 21.76 19.58 21.31 21.14" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Sport
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <div class="user-menu">
+                    <button class="user-avatar" id="userMenuBtn">
+                        <div class="avatar-circle">
+                            <span id="userInitials">U</span>
+                        </div>
+                    </button>
+                    
+                    <div class="user-dropdown hidden" id="userDropdown">
+                        <a href="../profil/html/profil.html" class="dropdown-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Mon Profil
+                        </a>
+                        <a href="../abonnement/html/abonnement.html" class="dropdown-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Mon Abonnement
+                        </a>
+                        <a href="../historique/html/historique.html" class="dropdown-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Historique
+                        </a>
+                        <a href="../parametres/html/parametres.html" class="dropdown-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                <path d="M19.4 15C19.2669 15.3016 19.2272 15.6362 19.286 15.9606C19.3448 16.285 19.4995 16.5843 19.73 16.82L19.79 16.88C19.976 17.0657 20.1235 17.2863 20.2241 17.5291C20.3248 17.7719 20.3766 18.0322 20.3766 18.295C20.3766 18.5578 20.3248 18.8181 20.2241 19.0609C20.1235 19.3037 19.976 19.5243 19.79 19.71C19.6043 19.896 19.3837 20.0435 19.1409 20.1441C18.8981 20.2448 18.6378 20.2966 18.375 20.2966C18.1122 20.2966 17.8519 20.2448 17.6091 20.1441C17.3663 20.0435 17.1457 19.896 16.96 19.71L16.9 19.65C16.6643 19.4195 16.365 19.2648 16.0406 19.206C15.7162 19.1472 15.3816 19.1869 15.08 19.32C14.7842 19.4468 14.532 19.6572 14.3543 19.9255C14.1766 20.1938 14.0813 20.5082 14.08 20.83V21C14.08 21.5304 13.8693 22.0391 13.5142 22.4142C13.1591 22.7893 12.6504 23 12.12 23C11.5896 23 11.0809 22.7893 10.7258 22.4142C10.3707 22.0391 10.16 21.5304 10.16 21V20.91C10.1549 20.579 10.0523 20.2573 9.86537 19.9845C9.67845 19.7118 9.41507 19.5002 9.11 19.375C8.80838 19.2419 8.47378 19.2022 8.14938 19.261C7.82498 19.3198 7.52568 19.4745 7.29 19.705L7.23 19.765C7.04426 19.951 6.82368 20.0985 6.58088 20.1991C6.33808 20.2998 6.07783 20.3516 5.815 20.3516C5.55217 20.3516 5.29192 20.2998 5.04912 20.1991C4.80632 20.0985 4.58574 19.951 4.4 19.765C4.21402 19.5793 4.06653 19.3587 3.96588 19.1159C3.86523 18.8731 3.81343 18.6128 3.81343 18.35C3.81343 18.0872 3.86523 17.8269 3.96588 17.5841C4.06653 17.3413 4.21402 17.1207 4.4 16.935L4.46 16.875C4.69052 16.6393 4.84523 16.34 4.90403 16.0156C4.96284 15.6912 4.92313 15.3566 4.79 15.055C4.66321 14.7592 4.45279 14.507 4.18448 14.3293C3.91617 14.1516 3.60178 14.0563 3.28 14.055H3.2C2.66957 14.055 2.16086 13.8443 1.78579 13.4892C1.41071 13.1341 1.2 12.6254 1.2 12.095C1.2 11.5646 1.41071 11.0559 1.78579 10.7008C2.16086 10.3457 2.66957 10.135 3.2 10.135H3.29C3.62099 10.1299 3.94269 10.0273 4.21537 9.84037C4.48805 9.65345 4.69965 9.39007 4.825 9.085C4.95813 8.78338 4.99784 8.44878 4.93903 8.12438C4.88023 7.79998 4.72552 7.50068 4.495 7.265L4.435 7.205C4.24902 7.01926 4.10153 6.79868 4.00088 6.55588C3.90023 6.31308 3.84843 6.05283 3.84843 5.79C3.84843 5.52717 3.90023 5.26692 4.00088 5.02412C4.10153 4.78132 4.24902 4.56074 4.435 4.375C4.62074 4.18902 4.84132 4.04153 5.08412 3.94088C5.32692 3.84023 5.58717 3.78843 5.85 3.78843C6.11283 3.78843 6.37308 3.84023 6.61588 3.94088C6.85868 4.04153 7.07926 4.18902 7.265 4.375L7.325 4.435C7.56068 4.66552 7.85998 4.82023 8.18438 4.87903C8.50878 4.93784 8.84338 4.89813 9.145 4.765H9.2C9.49581 4.63821 9.74802 4.42779 9.92571 4.15948C10.1034 3.89117 10.1987 3.57678 10.2 3.255V3.2C10.2 2.66957 10.4107 2.16086 10.7658 1.78579C11.1209 1.41071 11.6296 1.2 12.16 1.2C12.6904 1.2 13.1991 1.41071 13.5542 1.78579C13.9093 2.16086 14.12 2.66957 14.12 3.2V3.29C14.1213 3.61222 14.2166 3.92661 14.3943 4.19492C14.572 4.46323 14.8242 4.67365 15.12 4.8C15.4216 4.93313 15.7562 4.97284 16.0806 4.91403C16.405 4.85523 16.7043 4.70052 16.94 4.47L17 4.41C17.1857 4.22402 17.4063 4.07653 17.6491 3.97588C17.8919 3.87523 18.1522 3.82343 18.415 3.82343C18.6778 3.82343 18.9381 3.87523 19.1809 3.97588C19.4237 4.07653 19.6443 4.22402 19.83 4.41C20.016 4.59574 20.1635 4.81632 20.2641 5.05912C20.3648 5.30192 20.4166 5.56217 20.4166 5.825C20.4166 6.08783 20.3648 6.34808 20.2641 6.59088C20.1635 6.83368 20.016 7.05426 19.83 7.24L19.77 7.3C19.5395 7.53568 19.3848 7.83498 19.326 8.15938C19.2672 8.48378 19.3069 8.81838 19.44 9.12V9.17C19.5668 9.46581 19.7772 9.71802 20.0455 9.89571C20.3138 10.0734 20.6282 10.1687 20.95 10.17H21C21.5304 10.17 22.0391 10.3807 22.4142 10.7358C22.7893 11.0909 23 11.5996 23 12.13C23 12.6604 22.7893 13.1691 22.4142 13.5242C22.0391 13.8793 21.5304 14.09 21 14.09H20.91C20.5878 14.0913 20.2734 14.1866 20.0051 14.3643C19.7368 14.542 19.5264 14.7942 19.4 15.09V15.09Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Paramètres
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item logout-btn" id="logoutBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="16,17 21,12 16,7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Déconnexion
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenu principal -->
+        <main class="dashboard-main" id="dashboardMain">
+            <!-- Section Accueil -->
+            <section class="content-section active" id="homeSection">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1>Découvrez le meilleur du divertissement</h1>
+                        <p>Films, séries, sport et actualités en exclusivité sur Canal+</p>
+                        <div class="hero-actions">
+                            <button class="hero-btn primary">Regarder maintenant</button>
+                            <button class="hero-btn secondary">Découvrir</button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-placeholder">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="5,3 19,12 5,21 5,3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sections de contenu -->
+                <div class="content-sections">
+                    <!-- Continuer à regarder -->
+                    <div class="content-row">
+                        <div class="row-header">
+                            <h2>Continuer à regarder</h2>
+                            <a href="../historique/html/historique.html" class="view-all">Voir tout</a>
+                        </div>
+                        <div class="content-carousel" id="continueWatching">
+                            <!-- Contenu généré dynamiquement -->
+                        </div>
+                    </div>
+
+                    <!-- Recommandations -->
+                    <div class="content-row">
+                        <div class="row-header">
+                            <h2>Recommandé pour vous</h2>
+                            <a href="#" class="view-all">Voir tout</a>
+                        </div>
+                        <div class="content-carousel" id="recommendations">
+                            <!-- Contenu généré dynamiquement -->
+                        </div>
+                    </div>
+
+                    <!-- Nouveautés -->
+                    <div class="content-row">
+                        <div class="row-header">
+                            <h2>Nouveautés</h2>
+                            <a href="#" class="view-all">Voir tout</a>
+                        </div>
+                        <div class="content-carousel" id="newContent">
+                            <!-- Contenu généré dynamiquement -->
+                        </div>
+                    </div>
+
+                    <!-- Tendances -->
+                    <div class="content-row">
+                        <div class="row-header">
+                            <h2>Tendances</h2>
+                            <a href="#" class="view-all">Voir tout</a>
+                        </div>
+                        <div class="content-carousel" id="trending">
+                            <!-- Contenu généré dynamiquement -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section En Direct -->
+            <section class="content-section" id="liveSection">
+                <div class="section-header">
+                    <h1>En Direct</h1>
+                    <p>Regardez vos chaînes préférées en temps réel</p>
+                </div>
+                <div class="live-grid" id="liveGrid">
+                    <!-- Contenu généré dynamiquement -->
+                </div>
+            </section>
+
+            <!-- Section Films -->
+            <section class="content-section" id="moviesSection">
+                <div class="section-header">
+                    <h1>Films</h1>
+                    <p>Découvrez notre collection de films</p>
+                </div>
+                <div class="movies-grid" id="moviesGrid">
+                    <!-- Contenu généré dynamiquement -->
+                </div>
+            </section>
+
+            <!-- Section Séries -->
+            <section class="content-section" id="seriesSection">
+                <div class="section-header">
+                    <h1>Séries</h1>
+                    <p>Binge-watchez vos séries favorites</p>
+                </div>
+                <div class="series-grid" id="seriesGrid">
+                    <!-- Contenu généré dynamiquement -->
+                </div>
+            </section>
+
+            <!-- Section Sport -->
+            <section class="content-section" id="sportSection">
+                <div class="section-header">
+                    <h1>Sport</h1>
+                    <p>Suivez tous les événements sportifs</p>
+                </div>
+                <div class="sport-grid" id="sportGrid">
+                    <!-- Contenu généré dynamiquement -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Barre de recherche -->
+        <div class="search-overlay hidden" id="searchOverlay">
+            <div class="search-container">
+                <div class="search-header">
+                    <div class="search-input-container">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Rechercher films, séries, chaînes...">
+                    </div>
+                    <button class="search-close" id="searchClose">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="search-results" id="searchResults">
+                    <!-- Résultats de recherche -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Canal+</h4>
+                    <ul>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Presse</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Centre d'aide</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Légal</h4>
+                    <ul>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Canal+. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

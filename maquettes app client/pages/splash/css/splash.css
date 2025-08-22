@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #1A1A1A 0%, #000000 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.splash-container {
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.logo {
+    width: 140px;
+    height: 140px;
+    background: white;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 40px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    animation: logoScale 2s ease-in-out infinite alternate;
+    padding: 20px;
+}
+
+.logo-img {
+    width: 100%;
+    height: auto;
+    max-width: 100px;
+    object-fit: contain;
+}
+
+.app-title {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+    letter-spacing: -0.5px;
+}
+
+.tagline {
+    color: rgba(255,255,255,0.7);
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
+}
+
+.version-info {
+    margin-top: 16px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.2s forwards;
+}
+
+.version-text {
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#appVersion {
+    color: #E60012;
+    font-weight: 600;
+}
+
+.loading {
+    margin-top: 56px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1.5s forwards;
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #E60012;
+    border-radius: 50%;
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes logoScale {
+    from { 
+        transform: scale(1);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+    to { 
+        transform: scale(1.08);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+}
+
+@keyframes dotPulse {
+    0%, 80%, 100% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Transition vers page suivante */
+.splash-container.exit {
+    animation: fadeOutDown 0.6s ease-in forwards;
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .logo {
+        width: 120px;
+        height: 120px;
+        padding: 16px;
+    }
+    
+    .logo-img {
+        max-width: 80px;
+    }
+    
+    .app-title {
+        font-size: 24px;
+    }
+    
+    .tagline {
+        font-size: 16px;
+    }
+}

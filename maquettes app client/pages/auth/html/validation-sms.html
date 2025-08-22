@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation SMS - Canal+</title>
+    <link rel="stylesheet" href="../css/validation-sms.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header avec bouton retour -->
+        <header class="auth-header">
+            <button class="back-btn" onclick="window.location.href='inscription.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="logo-container">
+                <img src="../../splash/images/logo_canal.png" alt="Canal+" class="logo">
+            </div>
+        </header>
+
+        <!-- Contenu principal -->
+        <main class="auth-main">
+            <div class="auth-content">
+                <h1 class="auth-title">Vérification SMS</h1>
+                
+                <!-- Icône de message -->
+                <div class="verification-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#E60012;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                
+                <!-- Message d'information -->
+                <div class="verification-info">
+                    <p class="verification-message">
+                        Un code de vérification a été envoyé au
+                    </p>
+                    <p class="phone-number" id="phoneDisplay">+235 XX XX XX XX</p>
+                </div>
+                
+                <!-- Formulaire de validation -->
+                <form class="verification-form" id="verificationForm">
+                    <div class="code-input-container">
+                        <label for="verificationCode" class="input-label">Code de vérification</label>
+                        <div class="code-inputs">
+                            <input type="text" class="code-digit" maxlength="1" data-index="0">
+                            <input type="text" class="code-digit" maxlength="1" data-index="1">
+                            <input type="text" class="code-digit" maxlength="1" data-index="2">
+                            <input type="text" class="code-digit" maxlength="1" data-index="3">
+                            <input type="text" class="code-digit" maxlength="1" data-index="4">
+                            <input type="text" class="code-digit" maxlength="1" data-index="5">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Vérifier</span>
+                    </button>
+                </form>
+                
+                <!-- Timer et renvoi -->
+                <div class="resend-section">
+                    <p class="timer-text" id="timerText">
+                        Renvoyer le code dans <span id="countdown">60</span>s
+                    </p>
+                    <button type="button" class="resend-btn hidden" id="resendBtn">
+                        Renvoyer le code
+                    </button>
+                </div>
+                
+                <!-- Liens sous le formulaire -->
+                <div class="form-footer-links">
+                    <p class="help-text">
+                        Vous n'avez pas reçu le code ? Vérifiez vos SMS ou 
+                        <a href="inscription.html">modifiez votre numéro</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="auth-footer">
+            <p>© 2025 Canal+. Tous droits réservés.</p>
+        </footer>
+    </div>
+    
+    <script src="../js/validation-sms.js"></script>
+</body>
+</html>

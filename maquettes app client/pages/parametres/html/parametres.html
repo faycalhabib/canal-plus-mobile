@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres - Canal+</title>
+    <link rel="stylesheet" href="../css/parametres.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header avec navigation -->
+        <header class="settings-header">
+            <button class="back-btn" onclick="window.location.href='../../dashboard/html/index.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="header-title">
+                <h1>Paramètres</h1>
+            </div>
+            <div class="header-actions">
+                <button class="reset-btn" id="resetBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 4V10H7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.51 15C4.13 16.44 5.14 17.67 6.42 18.54C7.7 19.41 9.2 19.89 10.75 19.92C12.3 19.95 13.82 19.53 15.14 18.71C16.46 17.88 17.52 16.69 18.19 15.27C18.86 13.85 19.11 12.26 18.92 10.69C18.72 9.12 18.09 7.65 17.1 6.46C16.11 5.27 14.8 4.4 13.33 3.96C11.86 3.52 10.3 3.53 8.84 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Réinitialiser
+                </button>
+            </div>
+        </header>
+
+        <!-- Contenu principal -->
+        <main class="settings-main">
+            <div class="settings-content">
+                <!-- Paramètres de lecture -->
+                <section class="settings-section">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="23 7 16 12 23 17 23 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Lecture et affichage
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Qualité vidéo</h3>
+                            <p>Choisissez la qualité de diffusion par défaut</p>
+                        </div>
+                        <select class="setting-select" id="videoQuality">
+                            <option value="auto">Automatique</option>
+                            <option value="1080p">1080p (HD)</option>
+                            <option value="720p">720p</option>
+                            <option value="480p">480p</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Lecture automatique</h3>
+                            <p>Lancer automatiquement le contenu suivant</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoPlay" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Sous-titres</h3>
+                            <p>Affichage des sous-titres par défaut</p>
+                        </div>
+                        <select class="setting-select" id="subtitles">
+                            <option value="off">Désactivés</option>
+                            <option value="fr">Français</option>
+                            <option value="ar">العربية</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Volume par défaut</h3>
+                            <p>Niveau sonore au démarrage</p>
+                        </div>
+                        <div class="volume-control">
+                            <input type="range" id="defaultVolume" class="volume-slider" min="0" max="100" value="70">
+                            <span class="volume-value" id="volumeValue">70%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notifications -->
+                <section class="settings-section">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Notifications
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Nouveaux programmes</h3>
+                            <p>Être notifié des nouvelles sorties</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="newContentNotif" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Rappels de programmes</h3>
+                            <p>Rappel avant le début d'un programme favori</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="reminderNotif" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Offres promotionnelles</h3>
+                            <p>Recevoir les offres spéciales et promotions</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="promoNotif">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Heure des notifications</h3>
+                            <p>Ne pas déranger entre</p>
+                        </div>
+                        <div class="time-range">
+                            <input type="time" id="quietStart" class="time-input" value="22:00">
+                            <span>et</span>
+                            <input type="time" id="quietEnd" class="time-input" value="08:00">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contrôle parental -->
+                <section class="settings-section">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Contrôle parental
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Activer le contrôle parental</h3>
+                            <p>Restreindre l'accès au contenu selon l'âge</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="parentalControl">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item parental-setting hidden" id="ageRestriction">
+                        <div class="setting-info">
+                            <h3>Restriction d'âge</h3>
+                            <p>Âge maximum autorisé pour le contenu</p>
+                        </div>
+                        <select class="setting-select" id="maxAge">
+                            <option value="all">Tout public</option>
+                            <option value="12">12 ans et plus</option>
+                            <option value="16">16 ans et plus</option>
+                            <option value="18">18 ans et plus</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item parental-setting hidden" id="parentalPin">
+                        <div class="setting-info">
+                            <h3>Code PIN parental</h3>
+                            <p>Code requis pour modifier ces paramètres</p>
+                        </div>
+                        <button class="setting-btn" id="setPinBtn">
+                            Définir le code PIN
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Données et stockage -->
+                <section class="settings-section">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="12" cy="5" rx="9" ry="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M21 12C21 13.66 16.97 15 12 15S3 13.66 3 12" stroke="currentColor" stroke-width="2"/>
+                            <path d="M3 5V19C3 20.66 7.03 22 12 22S21 20.66 21 19V5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Données et stockage
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Économie de données</h3>
+                            <p>Réduire la consommation de données mobiles</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="dataSaver">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Téléchargements automatiques</h3>
+                            <p>Télécharger automatiquement les nouveaux épisodes</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoDownload">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="storage-info">
+                        <h3>Stockage utilisé</h3>
+                        <div class="storage-bar">
+                            <div class="storage-used" style="width: 45%"></div>
+                        </div>
+                        <p class="storage-text">2.3 Go utilisés sur 5 Go disponibles</p>
+                        <button class="setting-btn" id="clearCacheBtn">
+                            Vider le cache
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Accessibilité -->
+                <section class="settings-section">
+                    <h2 class="section-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M19.4 15C19.2669 15.3016 19.2272 15.6362 19.286 15.9606C19.3448 16.285 19.4995 16.5843 19.73 16.82L19.79 16.88C19.976 17.0657 20.1235 17.2863 20.2241 17.5291C20.3248 17.7719 20.3766 18.0322 20.3766 18.295C20.3766 18.5578 20.3248 18.8181 20.2241 19.0609C20.1235 19.3037 19.976 19.5243 19.79 19.71C19.6043 19.896 19.3837 20.0435 19.1409 20.1441C18.8981 20.2448 18.6378 20.2966 18.375 20.2966C18.1122 20.2966 17.8519 20.2448 17.6091 20.1441C17.3663 20.0435 17.1457 19.896 16.96 19.71L16.9 19.65C16.6643 19.4195 16.365 19.2648 16.0406 19.206C15.7162 19.1472 15.3816 19.1869 15.08 19.32C14.7842 19.4468 14.532 19.6572 14.3543 19.9255C14.1766 20.1938 14.0813 20.5082 14.08 20.83V21C14.08 21.5304 13.8693 22.0391 13.5142 22.4142C13.1591 22.7893 12.6504 23 12.12 23C11.5896 23 11.0809 22.7893 10.7258 22.4142C10.3707 22.0391 10.16 21.5304 10.16 21V20.91C10.1549 20.579 10.0523 20.2573 9.86537 19.9845C9.67845 19.7118 9.41507 19.5002 9.11 19.375C8.80838 19.2419 8.47378 19.2022 8.14938 19.261C7.82498 19.3198 7.52568 19.4745 7.29 19.705L7.23 19.765C7.04426 19.951 6.82368 20.0985 6.58088 20.1991C6.33808 20.2998 6.07783 20.3516 5.815 20.3516C5.55217 20.3516 5.29192 20.2998 5.04912 20.1991C4.80632 20.0985 4.58574 19.951 4.4 19.765C4.21402 19.5793 4.06653 19.3587 3.96588 19.1159C3.86523 18.8731 3.81343 18.6128 3.81343 18.35C3.81343 18.0872 3.86523 17.8269 3.96588 17.5841C4.06653 17.3413 4.21402 17.1207 4.4 16.935L4.46 16.875C4.69052 16.6393 4.84523 16.34 4.90403 16.0156C4.96284 15.6912 4.92313 15.3566 4.79 15.055C4.66321 14.7592 4.45279 14.507 4.18448 14.3293C3.91617 14.1516 3.60178 14.0563 3.28 14.055H3.2C2.66957 14.055 2.16086 13.8443 1.78579 13.4892C1.41071 13.1341 1.2 12.6254 1.2 12.095C1.2 11.5646 1.41071 11.0559 1.78579 10.7008C2.16086 10.3457 2.66957 10.135 3.2 10.135H3.29C3.62099 10.1299 3.94269 10.0273 4.21537 9.84037C4.48805 9.65345 4.69965 9.39007 4.825 9.085C4.95813 8.78338 4.99784 8.44878 4.93903 8.12438C4.88023 7.79998 4.72552 7.50068 4.495 7.265L4.435 7.205C4.24902 7.01926 4.10153 6.79868 4.00088 6.55588C3.90023 6.31308 3.84843 6.05283 3.84843 5.79C3.84843 5.52717 3.90023 5.26692 4.00088 5.02412C4.10153 4.78132 4.24902 4.56074 4.435 4.375C4.62074 4.18902 4.84132 4.04153 5.08412 3.94088C5.32692 3.84023 5.58717 3.78843 5.85 3.78843C6.11283 3.78843 6.37308 3.84023 6.61588 3.94088C6.85868 4.04153 7.07926 4.18902 7.265 4.375L7.325 4.435C7.56068 4.66552 7.85998 4.82023 8.18438 4.87903C8.50878 4.93784 8.84338 4.89813 9.145 4.765H9.2C9.49581 4.63821 9.74802 4.42779 9.92571 4.15948C10.1034 3.89117 10.1987 3.57678 10.2 3.255V3.2C10.2 2.66957 10.4107 2.16086 10.7658 1.78579C11.1209 1.41071 11.6296 1.2 12.16 1.2C12.6904 1.2 13.1991 1.41071 13.5542 1.78579C13.9093 2.16086 14.12 2.66957 14.12 3.2V3.29C14.1213 3.61222 14.2166 3.92661 14.3943 4.19492C14.572 4.46323 14.8242 4.67365 15.12 4.8C15.4216 4.93313 15.7562 4.97284 16.0806 4.91403C16.405 4.85523 16.7043 4.70052 16.94 4.47L17 4.41C17.1857 4.22402 17.4063 4.07653 17.6491 3.97588C17.8919 3.87523 18.1522 3.82343 18.415 3.82343C18.6778 3.82343 18.9381 3.87523 19.1809 3.97588C19.4237 4.07653 19.6443 4.22402 19.83 4.41C20.016 4.59574 20.1635 4.81632 20.2641 5.05912C20.3648 5.30192 20.4166 5.56217 20.4166 5.825C20.4166 6.08783 20.3648 6.34808 20.2641 6.59088C20.1635 6.83368 20.016 7.05426 19.83 7.24L19.77 7.3C19.5395 7.53568 19.3848 7.83498 19.326 8.15938C19.2672 8.48378 19.3069 8.81838 19.44 9.12V9.17C19.5668 9.46581 19.7772 9.71802 20.0455 9.89571C20.3138 10.0734 20.6282 10.1687 20.95 10.17H21C21.5304 10.17 22.0391 10.3807 22.4142 10.7358C22.7893 11.0909 23 11.5996 23 12.13C23 12.6604 22.7893 13.1691 22.4142 13.5242C22.0391 13.8793 21.5304 14.09 21 14.09H20.91C20.5878 14.0913 20.2734 14.1866 20.0051 14.3643C19.7368 14.542 19.5264 14.7942 19.4 15.09V15.09Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Accessibilité
+                    </h2>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Taille du texte</h3>
+                            <p>Ajuster la taille des textes à l'écran</p>
+                        </div>
+                        <select class="setting-select" id="fontSize">
+                            <option value="small">Petit</option>
+                            <option value="normal" selected>Normal</option>
+                            <option value="large">Grand</option>
+                            <option value="xlarge">Très grand</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Contraste élevé</h3>
+                            <p>Améliorer la lisibilité avec un contraste renforcé</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="highContrast">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h3>Descriptions audio</h3>
+                            <p>Activer les descriptions audio pour les malvoyants</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="audioDescription">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="settings-footer">
+            <div class="footer-links">
+                <a href="../../support/html/support.html">Support</a>
+                <a href="../../profil/html/profil.html">Mon Profil</a>
+                <a href="#">À propos</a>
+            </div>
+            <p>© 2025 Canal+. Tous droits réservés.</p>
+        </footer>
+    </div>
+    
+    <script src="../js/parametres.js"></script>
+</body>
+</html>

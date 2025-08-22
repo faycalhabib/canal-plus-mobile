@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation récupération - Canal+</title>
+    <link rel="stylesheet" href="../css/validation-recuperation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header avec bouton retour -->
+        <header class="auth-header">
+            <button class="back-btn" onclick="window.location.href='mot-de-passe-oublie.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="logo-container">
+                <img src="../../splash/images/logo_canal.png" alt="Canal+" class="logo">
+            </div>
+        </header>
+
+        <!-- Contenu principal -->
+        <main class="auth-main">
+            <div class="auth-content">
+                <h1 class="auth-title">Vérification de votre identité</h1>
+                
+                <!-- Icône de sécurité -->
+                <div class="security-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 12L11 14L15 10" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#E60012;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                
+                <!-- Message d'information -->
+                <div class="verification-info">
+                    <p class="verification-message">
+                        Un code de récupération a été envoyé au
+                    </p>
+                    <p class="phone-number" id="phoneDisplay">+235 XX XX XX XX</p>
+                </div>
+                
+                <!-- Formulaire de validation -->
+                <form class="verification-form" id="verificationForm">
+                    <div class="code-input-container">
+                        <label for="verificationCode" class="input-label">Code de récupération</label>
+                        <div class="code-inputs">
+                            <input type="text" class="code-digit" maxlength="1" data-index="0">
+                            <input type="text" class="code-digit" maxlength="1" data-index="1">
+                            <input type="text" class="code-digit" maxlength="1" data-index="2">
+                            <input type="text" class="code-digit" maxlength="1" data-index="3">
+                            <input type="text" class="code-digit" maxlength="1" data-index="4">
+                            <input type="text" class="code-digit" maxlength="1" data-index="5">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Valider</span>
+                    </button>
+                </form>
+                
+                <!-- Timer et renvoi -->
+                <div class="resend-section">
+                    <p class="timer-text" id="timerText">
+                        Renvoyer le code dans <span id="countdown">60</span>s
+                    </p>
+                    <button type="button" class="resend-btn hidden" id="resendBtn">
+                        Renvoyer le code
+                    </button>
+                </div>
+                
+                <!-- Liens sous le formulaire -->
+                <div class="form-footer-links">
+                    <p class="help-text">
+                        Vous n'avez pas reçu le code ? Vérifiez vos SMS ou 
+                        <a href="mot-de-passe-oublie.html">essayez un autre numéro</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="auth-footer">
+            <p>© 2025 Canal+. Tous droits réservés.</p>
+        </footer>
+    </div>
+    
+    <script src="../js/validation-recuperation.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Canal+</title>
+    <link rel="stylesheet" href="../css/inscription.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header avec bouton retour -->
+        <header class="auth-header">
+            <button class="back-btn" onclick="window.location.href='../../welcome/html/welcome.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="logo-container">
+                <img src="../../splash/images/logo_canal.png" alt="Canal+" class="logo">
+            </div>
+        </header>
+
+        <!-- Contenu principal -->
+        <main class="auth-main">
+            <div class="auth-content">
+                <h1 class="auth-title">Inscription</h1>
+                
+                <!-- Icône d'activation horizontale -->
+                <div class="single-toggle-container">
+                    <div class="single-toggle-switch">
+                        <span class="toggle-option" id="phoneOption">Numéro</span>
+                        <span class="toggle-option" id="decoderOption">Décodeur</span>
+                        <div class="toggle-slider"></div>
+                    </div>
+                </div>
+                
+                <!-- Formulaire d'inscription -->
+                <form class="auth-form" id="authForm">
+                    <!-- Formulaire téléphone -->
+                    <div class="form-section" id="phoneFormSection">
+                        <div class="input-group">
+                            <label for="phoneInput" class="input-label">Numéro de téléphone</label>
+                            <div class="phone-input-container">
+                                <div class="phone-input-wrapper">
+                                    <span class="country-prefix">+235</span>
+                                    <input type="tel" id="phoneInput" class="phone-input" placeholder="90 12 34 56">
+                                </div>
+                            </div>
+                            <p class="input-hint">Format: 90 12 34 56</p>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="password" class="input-label">Mot de passe</label>
+                            <div class="password-container">
+                                <input type="password" id="password" class="auth-input" placeholder="Entrez votre mot de passe">
+                                <button type="button" class="password-toggle" id="passwordToggle">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="confirmPassword" class="input-label">Confirmer le mot de passe</label>
+                            <div class="password-container">
+                                <input type="password" id="confirmPassword" class="auth-input" placeholder="Confirmez votre mot de passe">
+                                <button type="button" class="password-toggle" id="confirmPasswordToggle">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulaire décodeur -->
+                    <div class="form-section hidden" id="decoderFormSection">
+                        <div class="input-group">
+                            <label for="decoderInput" class="input-label">Numéro du décodeur</label>
+                            <input type="text" id="decoderInput" class="decoder-input" placeholder="Entrez les 14 chiffres de votre décodeur">
+                            <p class="input-hint">Vous trouverez ce numéro au dos de votre décodeur</p>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="decoderPassword" class="input-label">Mot de passe</label>
+                            <div class="password-container">
+                                <input type="password" id="decoderPassword" class="auth-input" placeholder="Entrez votre mot de passe">
+                                <button type="button" class="password-toggle" id="decoderPasswordToggle">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="confirmDecoderPassword" class="input-label">Confirmer le mot de passe</label>
+                            <div class="password-container">
+                                <input type="password" id="confirmDecoderPassword" class="auth-input" placeholder="Confirmez votre mot de passe">
+                                <button type="button" class="password-toggle" id="confirmDecoderPasswordToggle">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cgu-checkbox">
+                        <input type="checkbox" id="acceptCGU" required>
+                        <label for="acceptCGU">J'accepte les <a href="#">Conditions d'utilisation</a> | <a href="#">Politique de confidentialité</a></label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Continuer</span>
+                    </button>
+                </form>
+                
+                <!-- Liens sous le formulaire -->
+                <div class="form-footer-links">
+                    <p class="footer-login-link">
+                        Déjà un compte ? <a href="connexion.html">Connectez-vous</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="auth-footer">
+            <p>© 2025 Canal+. Tous droits réservés.</p>
+        </footer>
+    </div>
+    
+    <script src="../js/inscription.js"></script>
+</body>
+</html>

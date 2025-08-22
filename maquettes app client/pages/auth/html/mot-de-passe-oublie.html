@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mot de passe oublié - Canal+</title>
+    <link rel="stylesheet" href="../css/mot-de-passe-oublie.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header avec bouton retour -->
+        <header class="auth-header">
+            <button class="back-btn" onclick="window.location.href='connexion.html'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="logo-container">
+                <img src="../../splash/images/logo_canal.png" alt="Canal+" class="logo">
+            </div>
+        </header>
+
+        <!-- Contenu principal -->
+        <main class="auth-main">
+            <div class="auth-content">
+                <h1 class="auth-title">Mot de passe oublié ?</h1>
+                
+                <!-- Icône de récupération -->
+                <div class="recovery-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#E60012;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                
+                <!-- Message d'information -->
+                <div class="recovery-info">
+                    <p class="recovery-message">
+                        Saisissez votre numéro de téléphone pour recevoir un code de récupération
+                    </p>
+                </div>
+                
+                <!-- Formulaire de récupération -->
+                <form class="recovery-form" id="recoveryForm">
+                    <div class="input-group">
+                        <label for="phoneInput" class="input-label">Numéro de téléphone</label>
+                        <div class="phone-input-container">
+                            <div class="phone-input-wrapper">
+                                <span class="country-prefix">+235</span>
+                                <input type="tel" id="phoneInput" class="phone-input" placeholder="90 12 34 56">
+                            </div>
+                        </div>
+                        <p class="input-hint">Entrez le numéro utilisé lors de votre inscription</p>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Envoyer le code de récupération</span>
+                    </button>
+                </form>
+                
+                <!-- Liens sous le formulaire -->
+                <div class="form-footer-links">
+                    <p class="back-to-login">
+                        Vous vous souvenez de votre mot de passe ? 
+                        <a href="connexion.html">Connectez-vous</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="auth-footer">
+            <p>© 2025 Canal+. Tous droits réservés.</p>
+        </footer>
+    </div>
+    
+    <script src="../js/mot-de-passe-oublie.js"></script>
+</body>
+</html>

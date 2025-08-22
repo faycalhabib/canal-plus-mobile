@@ -1,0 +1,356 @@
+/* Validation récupération CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 100%;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.auth-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+/* Contenu principal */
+.auth-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-content {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.auth-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #E60012, #FF8C00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Icône de sécurité */
+.security-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Informations de vérification */
+.verification-info {
+    margin-bottom: 40px;
+}
+
+.verification-message {
+    font-size: 16px;
+    color: #cccccc;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.phone-number {
+    font-size: 18px;
+    font-weight: 600;
+    color: #E60012;
+    margin-bottom: 5px;
+}
+
+/* Formulaire de validation */
+.verification-form {
+    margin-bottom: 30px;
+}
+
+.code-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.input-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: left;
+}
+
+.code-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.code-digit {
+    width: 50px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.code-digit:focus {
+    border-color: #E60012;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.2);
+    transform: scale(1.05);
+}
+
+.code-digit.filled {
+    border-color: #E60012;
+    background: rgba(230, 0, 18, 0.1);
+}
+
+.code-digit.error {
+    border-color: #ff4444;
+    background: rgba(255, 68, 68, 0.1);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.submit-btn {
+    padding: 16px;
+    background: linear-gradient(45deg, #E60012, #FF8C00);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(230, 0, 18, 0.3);
+    width: 100%;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 0, 18, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Section de renvoi */
+.resend-section {
+    margin-bottom: 30px;
+}
+
+.timer-text {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 15px;
+}
+
+.timer-text span {
+    color: #E60012;
+    font-weight: 600;
+}
+
+.resend-btn {
+    background: none;
+    border: 2px solid #E60012;
+    border-radius: 12px;
+    color: #E60012;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resend-btn:hover {
+    background: #E60012;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.resend-btn.hidden {
+    display: none;
+}
+
+/* Liens sous le formulaire */
+.form-footer-links {
+    text-align: center;
+}
+
+.help-text {
+    font-size: 14px;
+    color: #888888;
+    line-height: 1.5;
+}
+
+.help-text a {
+    color: #E60012;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.help-text a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.auth-footer {
+    text-align: center;
+    padding: 20px;
+    color: #888888;
+    font-size: 12px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .auth-header {
+        padding: 15px;
+    }
+    
+    .logo {
+        height: 35px;
+    }
+    
+    .auth-content {
+        padding: 0 15px;
+    }
+    
+    .auth-title {
+        font-size: 24px;
+    }
+    
+    .security-icon svg {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .verification-message {
+        font-size: 14px;
+    }
+    
+    .phone-number {
+        font-size: 16px;
+    }
+    
+    .code-inputs {
+        gap: 8px;
+    }
+    
+    .code-digit {
+        width: 45px;
+        height: 55px;
+        font-size: 20px;
+    }
+    
+    .submit-btn {
+        padding: 14px;
+        font-size: 15px;
+    }
+    
+    .help-text {
+        font-size: 12px;
+    }
+}
