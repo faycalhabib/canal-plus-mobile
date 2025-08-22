@@ -28,10 +28,10 @@ jobs:
         cd client
         flutter pub get
         
-    - name: Build web
+    - name: Build web (skip analysis)
       run: |
         cd client
-        flutter build web --release --web-renderer canvaskit --base-href /canal-plus-mobile/
+        flutter build web --release --web-renderer canvaskit --base-href /canal-plus-mobile/ --no-tree-shake-icons
         
     - name: Setup Pages
       uses: actions/configure-pages@v4
