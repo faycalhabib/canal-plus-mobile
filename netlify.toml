@@ -1,0 +1,12 @@
+[build]
+  base = "client/"
+  publish = "client/build/web/"
+  command = "flutter build web --release --web-renderer html"
+
+[build.environment]
+  FLUTTER_VERSION = "3.24.5"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
