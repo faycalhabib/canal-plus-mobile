@@ -1,10 +1,14 @@
 [build]
   base = "client/"
-  publish = "client/build/web/"
-  command = "flutter build web --release --web-renderer html"
-
-[build.environment]
-  FLUTTER_VERSION = "3.24.5"
+  publish = "build/web/"
+  command = """
+    # Install Flutter
+    git clone https://github.com/flutter/flutter.git -b stable --depth 1
+    export PATH="$PATH:`pwd`/flutter/bin"
+    flutter doctor
+    flutter pub get
+    flutter build web --release --web-renderer html
+  """
 
 [[redirects]]
   from = "/*"
